@@ -7,16 +7,7 @@ class Casino {
 
     playGame(betAmount) {
         this.timesPlayed++
-        if (this.fakeCoin === true) {
-            console.log(`${this.name} Wins!`)
-        } else {
-            let winnings = betAmount * this.timesPlayed
-            if (Math.random() <= 0.5) {
-                console.log(`${this.name} Wins!`)
-            } else {
-                console.log(`You Won $${winnings}!`)
-            }
-        }
+        return this.fakeCoin || Math.random()<=0.5  ? console.log(`${this.name} Wins!`) : console.log(`You Won $${betAmount*(this.timesPlayed+1)}!`)
     }
 
     rollDie(d) {
